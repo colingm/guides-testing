@@ -77,7 +77,7 @@ sign-in) is listed in `report.needsAgent` with a screenshot and HTML snippet for
 
 `run-flags.txt` holds extra flags the scheduled agent passes to `run-daily.cjs` (one line, may be empty).
 It is committed so the flags can be changed with a normal commit instead of editing the routine prompt.
-Currently `--count 3 --no-new` (test mode). Empty the file for the normal daily mix (5–10 visitors, ~10% new).
+Currently empty = the normal daily mix (5–10 visitors, ~10% chance of one new visitor). For a small safe test run, put `--count 3 --no-new` in it.
 
 ## Scheduled-agent prompt
 
