@@ -1,1 +1,1 @@
---count 3 --no-new
+--count 1 --new
