@@ -113,8 +113,8 @@ export function AppLayout(): React.JSX.Element {
             <Image
               src={
                 colorScheme === "dark"
-                  ? "/halo-logo-dark.png"
-                  : "/halo-logo.png"
+                  ? `${import.meta.env.BASE_URL}halo-logo-dark.png`
+                  : `${import.meta.env.BASE_URL}halo-logo.png`
               }
               alt="Halo"
               h={32}
