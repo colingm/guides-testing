@@ -78,3 +78,8 @@ sign-in) is listed in `report.needsAgent` with a screenshot and HTML snippet for
 `run-flags.txt` holds extra flags the scheduled agent passes to `run-daily.cjs` (one line, may be empty).
 It is committed so the flags can be changed with a normal commit instead of editing the routine prompt.
 Currently `--count 3 --no-new` (test mode). Empty the file for the normal daily mix (5–10 visitors, ~10% new).
+
+## Scheduled-agent prompt
+
+`routine-prompt.md` is a copy of the prompt the scheduled cloud routine runs (keep the two in sync). It is
+small because the roster lives on the data branch. If the routine ever has to be recreated, paste this in.
