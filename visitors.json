@@ -707,8 +707,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:35.890Z",
-        "sessions": 0,
-        "lastActiveAt": null
+        "sessions": 1,
+        "lastActiveAt": "2026-11-04T18:34:56.027Z"
       }
     },
     {
@@ -837,6 +837,48 @@
         "createdAt": "2026-11-04T16:27:41.977Z",
         "sessions": 0,
         "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "frederic.batz@example.com",
+          "password": "compassionate-perfection-920",
+          "firstName": "Frederic",
+          "lastName": "Batz",
+          "username": "fbatz"
+        },
+        "step2": {
+          "jobTitle": "Consultant",
+          "role": "Other",
+          "yearsExperience": 1,
+          "location": "Rodriguezville, Andorra"
+        },
+        "step3": {
+          "companyName": "Feil, Prohaska and Stracke",
+          "companySize": "1–10",
+          "industry": "Software",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 3,
+          "topGoals": [
+            "Ship faster",
+            "Cleaner reporting"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "nDYRNV8HsfuNQZSut8-zl",
+        "workspaceId": "lWOZUrEERRxLK8UwapC3d",
+        "visitorCreatedAt": "2026-11-04T18:34:58.572Z",
+        "workspaceCreatedAt": "2026-11-04T18:34:58.573Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T18:34:58.646Z",
+        "sessions": 1,
+        "lastActiveAt": "2026-11-04T18:35:17.536Z"
       }
     }
   ]
