@@ -1,0 +1,14 @@
+{
+  "name": "halo-visitor-sim",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Simulated visitor activity for the Halo demo app (Pendo/Novus testing). Not part of the app build.",
+  "type": "commonjs",
+  "scripts": {
+    "generate": "node bin/generate-roster.cjs",
+    "daily": "node bin/run-daily.cjs"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0"
+  }
+}

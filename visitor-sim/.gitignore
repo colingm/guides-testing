@@ -1,0 +1,5 @@
+node_modules/
+out/
+# The roster holds fake credentials and generated IDs. It is source-controlled on
+# the colingm/guides-sim-data branch only, never on the code branch.
+data/
