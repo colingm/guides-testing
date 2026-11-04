@@ -70,3 +70,9 @@ After each page settles, `lib/guides.cjs` looks for Pendo guide containers and a
 (30%) or ignores (25%) them. Anything it cannot handle (no recognisable button, thrown error, failed
 sign-in) is listed in `report.needsAgent` with a screenshot and HTML snippet for the agent to deal with.
 **The Pendo selectors are unverified against live guides** — confirm on the first real run.
+
+## Run flags for the scheduled agent
+
+`run-flags.txt` holds extra flags the scheduled agent passes to `run-daily.cjs` (one line, may be empty).
+It is committed so the flags can be changed with a normal commit instead of editing the routine prompt.
+Currently `--count 3 --no-new` (test mode). Empty the file for the normal daily mix (5–10 visitors, ~10% new).
