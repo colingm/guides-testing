@@ -48,8 +48,10 @@ least one sign-in failed.
 
 `data/visitors.json` — `{ version: 1, visitors: [{ profile: {step1..step4}, identity: {visitorId, workspaceId, ...}, stats }] }`.
 It contains fake plaintext passwords and is git-ignored on the code branch. The source of
-truth is the scheduled task's prompt, with `visitors.json` backed up on the
-`colingm/guides-sim-data` branch.
+truth is `visitors.json` on the `colingm/guides-sim-data` branch (the scheduled task's prompt no
+longer carries the roster, to keep it small). The scheduled agent reads it from there, and pushes
+the updated roster back after each run when it has push access. When it can't push, it runs with
+`--no-new` so no visitor is created that couldn't be saved.
 
 ```bash
 node bin/roster-cli.cjs compact            # one-line JSON for pasting into the prompt
