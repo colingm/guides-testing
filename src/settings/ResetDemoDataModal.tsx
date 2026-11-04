@@ -72,6 +72,7 @@
 import { Modal, Group, Text } from '@mantine/core'
 import { Button } from '../ui/primitives'
 import { PENDO_IDS } from '../pendo/PENDO_IDS'
+import { clearPendoSession } from '../pendo/pendoSession'
 import { K } from '../storage/keys'
 
 export type ResetDemoDataModalProps = {
@@ -117,7 +118,12 @@ export function ResetDemoDataModal({ opened, onClose }: ResetDemoDataModalProps)
     //    key deliberately preserved across the reset because Mantine owns it
     //    and it lives outside the halo:v* envelope by design.
 
-    // 4. Hard reload — re-runs boot sequence with clean state.
+    // 4. The wipe above removed the session without going through the auth
+    //    store, so reset Pendo here too — otherwise the reloaded anonymous
+    //    boot would resume the previous user's Pendo visitor.
+    clearPendoSession()
+
+    // 5. Hard reload — re-runs boot sequence with clean state.
     window.location.href = '/'
   }
 

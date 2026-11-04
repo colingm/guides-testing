@@ -27,7 +27,14 @@ runMigrations()
 dayjs.extend(utc)
 
 // React Router SPA route changes are auto-detected by Pendo via History API hooks.
-// Pendo initialization is deferred to Phase 6 (Pendo Install & Wiring).
+// Boot Pendo exactly once, before React mounts. The empty visitor id lets the
+// agent resume a previously identified visitor (or start an anonymous one);
+// the signed-in user is registered via pendo.identify in src/pendo/PendoBridge.tsx.
+pendo.initialize({
+  visitor: {
+    id: '',
+  },
+})
 
 const container = document.getElementById('root')
 if (!container) {
