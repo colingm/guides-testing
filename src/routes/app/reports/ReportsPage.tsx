@@ -43,6 +43,7 @@ import { IconDownload } from '@tabler/icons-react'
 import dayjs from 'dayjs'
 import { Button } from '../../../ui/primitives'
 import { PENDO_IDS } from '../../../pendo/PENDO_IDS'
+import { trackEvent } from '../../../pendo/track'
 import { useAuthStore } from '../../../auth/authStore'
 import { listTasks } from '../../../tasks/tasksRepo'
 import { computeNowRef } from '../../../tasks/now-ref'
@@ -106,6 +107,28 @@ export function ReportsPage(): React.JSX.Element {
       .sort((a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf())
   }, [allTasks, dateRange, assignee, statusFilter])
 
+  // Pendo: report_csv_exported — fires after the CSV Blob is built and the
+  // download is started, with the row count + filters that shaped it.
+  const handleExportCsv = () => {
+    const fileName = exportTasksToCsv(filteredTasks)
+    const [rangeStart, rangeEnd] = dateRange
+    // Inclusive day span of the date-range filter (null when a bound is unset).
+    const dateRangeDays =
+      rangeStart && rangeEnd
+        ? dayjs
+            .utc(rangeEnd)
+            .startOf('day')
+            .diff(dayjs.utc(rangeStart).startOf('day'), 'day') + 1
+        : null
+    trackEvent('report_csv_exported', {
+      rowCount: filteredTasks.length,
+      dateRangeDays,
+      assigneeFilter: assignee,
+      statusFilter: [...statusFilter],
+      fileName,
+    })
+  }
+
   // Defensive narrowing — RequireAuth already gates this path.
   if (!workspaceId || !visitor) return <></>
 
@@ -118,7 +141,7 @@ export function ReportsPage(): React.JSX.Element {
           variant="outline"
           leftSection={<IconDownload size={16} />}
           pendoId={PENDO_IDS.reports.csvExport}
-          onClick={() => exportTasksToCsv(filteredTasks)}
+          onClick={handleExportCsv}
           disabled={filteredTasks.length === 0}
         >
           Export CSV

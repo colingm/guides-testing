@@ -41,6 +41,7 @@ import { notifications } from '@mantine/notifications'
 import { IconPlus, IconTrash } from '@tabler/icons-react'
 import { Button } from '../../../ui/primitives'
 import { PENDO_IDS } from '../../../pendo/PENDO_IDS'
+import { trackEvent } from '../../../pendo/track'
 import { useAuthStore } from '../../../auth/authStore'
 import { listTasks, updateTask, deleteTask } from '../../../tasks/tasksRepo'
 import type { Task } from '../../../tasks/types'
@@ -50,6 +51,17 @@ import { TaskFormModal } from '../../../tasks/components/TaskFormModal'
 import { DeleteConfirmModal } from '../../../tasks/components/DeleteConfirmModal'
 import { ListsEmptyState } from '../../../tasks/components/ListsEmptyState'
 import { FilteredEmptyState } from '../../../tasks/components/FilteredEmptyState'
+
+type TaskFilters = { status: string; priority: string; assignee: string }
+
+/** Lists filter predicate — the three Select filters are ANDed (LIST-07). */
+function matchesTaskFilters(t: Task, filters: TaskFilters): boolean {
+  return (
+    (filters.status === 'all' || t.status === filters.status) &&
+    (filters.priority === 'all' || t.priority === filters.priority) &&
+    (filters.assignee === 'all' || t.assignee?.id === filters.assignee)
+  )
+}
 
 export function ListsPage(): React.JSX.Element {
   const visitor = useAuthStore((s) => s.currentVisitor)
@@ -78,21 +90,46 @@ export function ListsPage(): React.JSX.Element {
 
   const filteredTasks = useMemo(
     () =>
-      allTasks.filter(
-        (t) =>
-          (statusFilter === 'all' || t.status === statusFilter) &&
-          (priorityFilter === 'all' || t.priority === priorityFilter) &&
-          (assigneeFilter === 'all' || t.assignee?.id === assigneeFilter),
+      allTasks.filter((t) =>
+        matchesTaskFilters(t, {
+          status: statusFilter,
+          priority: priorityFilter,
+          assignee: assigneeFilter,
+        }),
       ),
     [allTasks, statusFilter, priorityFilter, assigneeFilter],
   )
 
+  // Pendo: task_filters_applied — fired from the filter change handlers (not
+  // a useEffect) so it records only user-driven filter changes, never the
+  // recomputes triggered by mount or CRUD refreshes. Result counts are
+  // computed against the same predicate as `filteredTasks`.
+  const applyFilters = (next: TaskFilters) => {
+    if (
+      next.status === statusFilter &&
+      next.priority === priorityFilter &&
+      next.assignee === assigneeFilter
+    ) {
+      return
+    }
+    setStatusFilter(next.status)
+    setPriorityFilter(next.priority)
+    setAssigneeFilter(next.assignee)
+    const resultsCount = allTasks.filter((t) => matchesTaskFilters(t, next)).length
+    trackEvent('task_filters_applied', {
+      statusFilter: next.status,
+      priorityFilter: next.priority,
+      assigneeFilter: next.assignee,
+      resultsCount,
+      totalTaskCount: allTasks.length,
+      isEmptyResult: resultsCount === 0,
+    })
+  }
+
   const filtersActive =
     statusFilter !== 'all' || priorityFilter !== 'all' || assigneeFilter !== 'all'
   const resetFilters = () => {
-    setStatusFilter('all')
-    setPriorityFilter('all')
-    setAssigneeFilter('all')
+    applyFilters({ status: 'all', priority: 'all', assignee: 'all' })
   }
 
   // Defensive narrowing — RequireAuth + AppLayout already gate this, but
@@ -130,9 +167,11 @@ export function ListsPage(): React.JSX.Element {
             priorityValue={priorityFilter}
             assigneeValue={assigneeFilter}
             onChange={(next) => {
-              if (next.status !== undefined) setStatusFilter(next.status)
-              if (next.priority !== undefined) setPriorityFilter(next.priority)
-              if (next.assignee !== undefined) setAssigneeFilter(next.assignee)
+              applyFilters({
+                status: next.status ?? statusFilter,
+                priority: next.priority ?? priorityFilter,
+                assignee: next.assignee ?? assigneeFilter,
+              })
             }}
           />
           {filteredTasks.length === 0 && filtersActive ? (
@@ -144,11 +183,16 @@ export function ListsPage(): React.JSX.Element {
               onEdit={(task) => setEditTask(task)}
               onDelete={(task) => setDeleteTarget(task)}
               onToggleComplete={(task, nextDone) => {
-                updateTask(workspaceId, task.id, {
-                  // Off-toggle: restore prior non-done status if recorded;
-                  // fall back to 'todo' for legacy tasks without prevStatus.
-                  status: nextDone ? 'done' : (task.prevStatus ?? 'todo'),
-                })
+                updateTask(
+                  workspaceId,
+                  task.id,
+                  {
+                    // Off-toggle: restore prior non-done status if recorded;
+                    // fall back to 'todo' for legacy tasks without prevStatus.
+                    status: nextDone ? 'done' : (task.prevStatus ?? 'todo'),
+                  },
+                  'checkbox',
+                )
                 refresh()
               }}
             />

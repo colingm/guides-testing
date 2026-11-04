@@ -36,6 +36,7 @@ import { notifications } from '@mantine/notifications'
 import { IconCheck, IconAlertCircle } from '@tabler/icons-react'
 import { TextInput, Select, Button } from '../ui/primitives'
 import { PENDO_IDS } from '../pendo/PENDO_IDS'
+import { trackEvent } from '../pendo/track'
 import {
   VisitorSchema,
   updateVisitor,
@@ -94,6 +95,10 @@ export function ProfileTab(): React.JSX.Element | null {
   })
 
   const onSubmit = form.handleSubmit((values) => {
+    // Field names (never values) that differ from the persisted visitor.
+    const changedFields = (Object.keys(values) as (keyof ProfileFormValues)[]).filter(
+      (field) => values[field] !== visitor[field],
+    )
     const updated = updateVisitor(visitor.id, values)
     if (updated) {
       useAuthStore.setState({ currentVisitor: updated })
@@ -103,6 +108,12 @@ export function ProfileTab(): React.JSX.Element | null {
         color: 'green',
         icon: <IconCheck size={18} />,
         autoClose: 3000,
+      })
+      // Pendo: profile_updated — persisted profile save; field names only.
+      trackEvent('profile_updated', {
+        changedFields,
+        changedFieldCount: changedFields.length,
+        role: updated.role,
       })
       // Re-base form's defaultValues so isDirty flips back to false until
       // the next edit. Without this, Save would stay enabled after a save.

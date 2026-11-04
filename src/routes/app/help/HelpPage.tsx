@@ -18,13 +18,17 @@
  * The flat sibling shape is explicitly accepted per UI-SPEC line 840.
  */
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Stack, Title } from '@mantine/core'
 import { useDebouncedValue } from '@mantine/hooks'
 import { listHelpArticles } from '../../../help/helpArticles'
 import { HelpSearchInput } from '../../../help/components/HelpSearchInput'
 import { HelpList } from '../../../help/components/HelpList'
 import { HelpNoResultsState } from '../../../help/components/HelpNoResultsState'
+import { trackEvent } from '../../../pendo/track'
+
+// Pendo property values must stay small (512-byte properties payload cap).
+const MAX_TRACKED_QUERY_LENGTH = 100
 
 export function HelpPage(): React.JSX.Element {
   const [query, setQuery] = useState('')
@@ -43,6 +47,23 @@ export function HelpPage(): React.JSX.Element {
       return haystack.includes(needle)
     })
   }, [allArticles, debouncedQuery])
+
+  // Pendo: help_search_performed — fires once each time the 150ms-debounced
+  // query settles on a new non-empty value (keyed on the normalized needle,
+  // so whitespace-only edits and keystrokes inside the debounce window don't
+  // re-fire). Zero-result searches are included to surface content gaps.
+  const normalizedQuery = debouncedQuery.trim()
+  const resultsCount = filtered.length
+  useEffect(() => {
+    if (normalizedQuery === '') return
+    trackEvent('help_search_performed', {
+      query: normalizedQuery.slice(0, MAX_TRACKED_QUERY_LENGTH),
+      queryLength: normalizedQuery.length,
+      resultsCount,
+      hasResults: resultsCount > 0,
+      totalArticleCount: allArticles.length,
+    })
+  }, [normalizedQuery, resultsCount, allArticles.length])
 
   return (
     <Stack gap="lg">

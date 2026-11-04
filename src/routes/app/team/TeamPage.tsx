@@ -22,6 +22,7 @@ import { notifications } from '@mantine/notifications'
 import { IconUserPlus, IconCheck } from '@tabler/icons-react'
 import { Button } from '../../../ui/primitives'
 import { PENDO_IDS } from '../../../pendo/PENDO_IDS'
+import { trackEvent } from '../../../pendo/track'
 import { useAuthStore } from '../../../auth/authStore'
 import { listTeammates, updateTeammate } from '../../../team/teamsRepo'
 import { TeamTable } from '../../../team/components/TeamTable'
@@ -49,7 +50,8 @@ export function TeamPage(): React.JSX.Element {
   if (!workspaceId || !visitor || !workspace) return <></>
 
   const handleRoleChange = (teammateId: string, nextRole: WorkspaceRole) => {
-    updateTeammate(workspaceId, teammateId, { workspaceRole: nextRole })
+    const previous = teammates.find((t) => t.id === teammateId)
+    const updated = updateTeammate(workspaceId, teammateId, { workspaceRole: nextRole })
     notifications.show({
       title: 'Role updated',
       message: '',
@@ -57,6 +59,15 @@ export function TeamPage(): React.JSX.Element {
       icon: <IconCheck size={18} />,
       autoClose: 3000,
     })
+    // Pendo: teammate_role_changed — the new workspaceRole was persisted.
+    if (updated && previous?.workspaceRole !== updated.workspaceRole) {
+      trackEvent('teammate_role_changed', {
+        teammateId: updated.id,
+        previousRole: previous?.workspaceRole ?? null,
+        newRole: updated.workspaceRole,
+        teammateStatus: updated.status,
+      })
+    }
     refresh()
   }
 

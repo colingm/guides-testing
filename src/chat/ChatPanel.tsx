@@ -14,7 +14,13 @@ import { Button, Textarea } from '../ui/primitives'
 import { PENDO_IDS } from '../pendo/PENDO_IDS'
 import { useAuthStore } from '../auth'
 import { listMessages, appendMessage, clearMessages } from './chatRepo'
-import { streamChatReply, describeChatError } from './claudeClient'
+import {
+  streamChatReply,
+  describeChatError,
+  ChatNotConfiguredError,
+  ChatProxyError,
+} from './claudeClient'
+import { trackEvent } from '../pendo/track'
 import type { ChatMessage } from './types'
 
 interface ChatPanelProps {
@@ -57,13 +63,36 @@ export function ChatPanel({ onClose }: ChatPanelProps): React.JSX.Element {
 
     setIsSending(true)
     setStreamingText('')
+    const sentAt = Date.now()
+    // User turns in the conversation so far, including this one.
+    const conversationTurnCount = nextHistory.filter((m) => m.role === 'user').length
     try {
       const fullReply = await streamChatReply(nextHistory, (chunk) =>
         setStreamingText((prev) => (prev ?? '') + chunk),
       )
       const assistantMessage = appendMessage(workspaceId, { role: 'assistant', content: fullReply })
       setMessages((prev) => [...prev, assistantMessage])
+      // Pendo: assistant_reply_received — stream finished and the full reply
+      // was appended. Lengths only; never the prompt or reply text.
+      trackEvent('assistant_reply_received', {
+        conversationTurnCount,
+        promptLength: text.length,
+        replyLength: fullReply.length,
+        responseTimeMs: Date.now() - sentAt,
+      })
     } catch (err) {
+      // Pendo: assistant_reply_failed — error class only (no message text).
+      trackEvent('assistant_reply_failed', {
+        errorName: err instanceof Error ? err.name : 'UnknownError',
+        errorType:
+          err instanceof ChatProxyError
+            ? err.errorType
+            : err instanceof ChatNotConfiguredError
+              ? 'not_configured'
+              : 'network_or_http',
+        conversationTurnCount,
+        responseTimeMs: Date.now() - sentAt,
+      })
       const description = describeChatError(err)
       setErrorText(description)
       const errorMessage = appendMessage(workspaceId, {
