@@ -1,0 +1,843 @@
+{
+  "version": 1,
+  "visitors": [
+    {
+      "profile": {
+        "step1": {
+          "email": "nikita.crist@example.com",
+          "password": "baggy-substitution-640",
+          "firstName": "Nikita",
+          "lastName": "Crist",
+          "username": "ncrist"
+        },
+        "step2": {
+          "jobTitle": "DevOps Engineer",
+          "role": "Engineering",
+          "yearsExperience": 6,
+          "location": "Wisozkhaven, Costa Rica"
+        },
+        "step3": {
+          "companyName": "Leffler - Moore",
+          "companySize": "1–10",
+          "industry": "Healthcare",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Personal productivity",
+          "teamSize": 7,
+          "topGoals": [
+            "Replace another tool",
+            "Cleaner reporting"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "s9ROZ5EPo_w8HLIgFqdDA",
+        "workspaceId": "JMOQ8qNuXuXqf_N9eeLL8",
+        "visitorCreatedAt": "2026-11-04T16:27:04.524Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:04.524Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:04.571Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "georgianna.dooley@example.com",
+          "password": "mild-mozzarella-550",
+          "firstName": "Georgianna",
+          "lastName": "Dooley",
+          "username": "gdooley"
+        },
+        "step2": {
+          "jobTitle": "Demand Generation Lead",
+          "role": "Marketing",
+          "yearsExperience": 7,
+          "location": "New Ursulaworth, Sint Maarten"
+        },
+        "step3": {
+          "companyName": "Kiehn - Barton",
+          "companySize": "11–50",
+          "industry": "Education",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Project management",
+          "teamSize": 16,
+          "topGoals": [
+            "Less context switching"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "gF8Yq6oaTdFwoQr11s3cI",
+        "workspaceId": "pIuNpQxU882GZYfRLnuzH",
+        "visitorCreatedAt": "2026-11-04T16:27:06.457Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:06.457Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:06.507Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "major.lockman@example.com",
+          "password": "dependable-violin-255",
+          "firstName": "Major",
+          "lastName": "Lockman",
+          "username": "mlockman"
+        },
+        "step2": {
+          "jobTitle": "Business Analyst",
+          "role": "Operations",
+          "yearsExperience": 8,
+          "location": "Metzshire, Belize"
+        },
+        "step3": {
+          "companyName": "Howell - Hermiston",
+          "companySize": "11–50",
+          "industry": "Financial services",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 4,
+          "topGoals": [
+            "Less context switching",
+            "Replace another tool"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "K_V0oVf4iTxlVfQbJZcev",
+        "workspaceId": "whyVOKBHiP_WeWDWogSUH",
+        "visitorCreatedAt": "2026-11-04T16:27:08.423Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:08.423Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:08.476Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "breanne.yost@example.com",
+          "password": "sophisticated-council-872",
+          "firstName": "Breanne",
+          "lastName": "Yost",
+          "username": "byost"
+        },
+        "step2": {
+          "jobTitle": "Senior UX Designer",
+          "role": "Design",
+          "yearsExperience": 11,
+          "location": "Port Ottoton, Guadeloupe"
+        },
+        "step3": {
+          "companyName": "Harris - Hane",
+          "companySize": "11–50",
+          "industry": "Software",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 18,
+          "topGoals": [
+            "Cleaner reporting",
+            "Replace another tool",
+            "Less context switching"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "pVANjzTPFYKMnY8x_17ru",
+        "workspaceId": "TXK_rN3FP8xdUlQF5XwIr",
+        "visitorCreatedAt": "2026-11-04T16:27:10.458Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:10.458Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:10.513Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "stefan.ratke@example.com",
+          "password": "smooth-meander-199",
+          "firstName": "Stefan",
+          "lastName": "Ratke",
+          "username": "sratke"
+        },
+        "step2": {
+          "jobTitle": "Product Owner",
+          "role": "Product",
+          "yearsExperience": 4,
+          "location": "Keeblertown, Bolivia"
+        },
+        "step3": {
+          "companyName": "Lang - Jenkins",
+          "companySize": "51–200",
+          "industry": "Other",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Just exploring",
+          "teamSize": 45,
+          "topGoals": [
+            "Better visibility"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "Z7j2tIjPOJaXlcfZzYhqQ",
+        "workspaceId": "Wj0Kz7Aypry4ZiJkI3jvq",
+        "visitorCreatedAt": "2026-11-04T16:27:12.340Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:12.340Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:12.389Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "bartholome.ward@example.com",
+          "password": "striking-overcoat-996",
+          "firstName": "Bartholome",
+          "lastName": "Ward",
+          "username": "bward"
+        },
+        "step2": {
+          "jobTitle": "Visual Designer",
+          "role": "Design",
+          "yearsExperience": 4,
+          "location": "Santa Cruz, Christmas Island"
+        },
+        "step3": {
+          "companyName": "Tremblay, Farrell and Stoltenberg",
+          "companySize": "51–200",
+          "industry": "Software",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 23,
+          "topGoals": [
+            "Ship faster"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "xu370RmTTkEkJ1Hi6bOyA",
+        "workspaceId": "g8yfqHXKAKUH7rf5fFyTQ",
+        "visitorCreatedAt": "2026-11-04T16:27:14.240Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:14.240Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:14.299Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "imani.hauck@example.com",
+          "password": "watery-fellow-488",
+          "firstName": "Imani",
+          "lastName": "Hauck",
+          "username": "ihauck"
+        },
+        "step2": {
+          "jobTitle": "Senior UX Designer",
+          "role": "Design",
+          "yearsExperience": 8,
+          "location": "Westleyworth, Dominica"
+        },
+        "step3": {
+          "companyName": "Bashirian LLC",
+          "companySize": "51–200",
+          "industry": "Software",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Project management",
+          "teamSize": 55,
+          "topGoals": [
+            "Less context switching",
+            "Better visibility"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "L1wB3l_6p1d5mmw2QtqKx",
+        "workspaceId": "30l3EXivy4pfY9sBBA5Jf",
+        "visitorCreatedAt": "2026-11-04T16:27:16.224Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:16.224Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:16.286Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "doyle.considine@example.com",
+          "password": "lumpy-widow-729",
+          "firstName": "Doyle",
+          "lastName": "Considine",
+          "username": "dconsidine"
+        },
+        "step2": {
+          "jobTitle": "Product Owner",
+          "role": "Product",
+          "yearsExperience": 1,
+          "location": "Lake Nels, Guatemala"
+        },
+        "step3": {
+          "companyName": "Borer and Sons",
+          "companySize": "51–200",
+          "industry": "Software",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Just exploring",
+          "teamSize": 40,
+          "topGoals": [
+            "Replace another tool"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "bFIHVGnm_5CJbShPWGQR-",
+        "workspaceId": "9D09BXh6I75hFFcrS_oPV",
+        "visitorCreatedAt": "2026-11-04T16:27:18.141Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:18.141Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:18.190Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "aliya.armstrong@example.com",
+          "password": "messy-decryption-108",
+          "firstName": "Aliya",
+          "lastName": "Armstrong",
+          "username": "aarmstrong"
+        },
+        "step2": {
+          "jobTitle": "Sales Operations Analyst",
+          "role": "Sales",
+          "yearsExperience": 8,
+          "location": "Howeshire, Bulgaria"
+        },
+        "step3": {
+          "companyName": "Terry Inc",
+          "companySize": "1,000+",
+          "industry": "Software",
+          "planTier": "Enterprise"
+        },
+        "step4": {
+          "primaryUseCase": "Project management",
+          "teamSize": 206,
+          "topGoals": [
+            "Replace another tool"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "5dkk89JuwwTPNp5qIilBw",
+        "workspaceId": "aE2Rz5iGfjA7dUD3HN_sV",
+        "visitorCreatedAt": "2026-11-04T16:27:20.058Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:20.058Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:20.122Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "josh.botsford@example.com",
+          "password": "unpleasant-tenement-126",
+          "firstName": "Josh",
+          "lastName": "Botsford",
+          "username": "jbotsford"
+        },
+        "step2": {
+          "jobTitle": "Associate Product Manager",
+          "role": "Product",
+          "yearsExperience": 5,
+          "location": "Reingerside, Thailand"
+        },
+        "step3": {
+          "companyName": "Crooks, Altenwerth and Abshire",
+          "companySize": "1,000+",
+          "industry": "Software",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Project management",
+          "teamSize": 233,
+          "topGoals": [
+            "Cleaner reporting",
+            "Ship faster"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "OBA9D_v1Xf81XkHFsGbkb",
+        "workspaceId": "235FXT0lPC-w34pA-88vU",
+        "visitorCreatedAt": "2026-11-04T16:27:22.007Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:22.007Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:22.063Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "maritza.rath@example.com",
+          "password": "everlasting-fencing-906",
+          "firstName": "Maritza",
+          "lastName": "Rath",
+          "username": "mrath"
+        },
+        "step2": {
+          "jobTitle": "Engineering Manager",
+          "role": "Engineering",
+          "yearsExperience": 16,
+          "location": "Oberbrunnerstead, Benin"
+        },
+        "step3": {
+          "companyName": "Wiza Inc",
+          "companySize": "51–200",
+          "industry": "Retail / e-commerce",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Project management",
+          "teamSize": 23,
+          "topGoals": [
+            "Replace another tool"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "6THnyjlePuY7trrypbRdl",
+        "workspaceId": "7-g2cyOt7M4hf1rIFXA3Y",
+        "visitorCreatedAt": "2026-11-04T16:27:23.906Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:23.906Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:23.962Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "ramiro.kulas@example.com",
+          "password": "direct-puppet-212",
+          "firstName": "Ramiro",
+          "lastName": "Kulas",
+          "username": "rkulas"
+        },
+        "step2": {
+          "jobTitle": "Software Engineer",
+          "role": "Engineering",
+          "yearsExperience": 5,
+          "location": "North Tyrique, Uruguay"
+        },
+        "step3": {
+          "companyName": "Ward, Windler-Stehr and Stark",
+          "companySize": "11–50",
+          "industry": "Healthcare",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Just exploring",
+          "teamSize": 19,
+          "topGoals": [
+            "Onboard the team",
+            "Replace another tool",
+            "Better visibility"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "8SDXyHiFOrmh_OG0-HfCj",
+        "workspaceId": "5nzu6iBgM45rrguTy21y_",
+        "visitorCreatedAt": "2026-11-04T16:27:25.941Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:25.941Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:26.006Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "laila.marks@example.com",
+          "password": "busy-object-905",
+          "firstName": "Laila",
+          "lastName": "Marks",
+          "username": "lmarks"
+        },
+        "step2": {
+          "jobTitle": "Software Engineer",
+          "role": "Engineering",
+          "yearsExperience": 6,
+          "location": "Carmichael, Lithuania"
+        },
+        "step3": {
+          "companyName": "Prosacco, Schowalter and Veum",
+          "companySize": "201–1,000",
+          "industry": "Software",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Just exploring",
+          "teamSize": 70,
+          "topGoals": [
+            "Better visibility",
+            "Cleaner reporting"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "IUTXOiyWVDE1BELbwPXBk",
+        "workspaceId": "d2PaRmVhfiTsMiOfN3kzZ",
+        "visitorCreatedAt": "2026-11-04T16:27:27.972Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:27.973Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:28.027Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "randy.schinner@example.com",
+          "password": "unimportant-fit-252",
+          "firstName": "Randy",
+          "lastName": "Schinner",
+          "username": "rschinner"
+        },
+        "step2": {
+          "jobTitle": "Design Lead",
+          "role": "Design",
+          "yearsExperience": 19,
+          "location": "North Immanuel, Maldives"
+        },
+        "step3": {
+          "companyName": "Bashirian - Champlin",
+          "companySize": "1,000+",
+          "industry": "Education",
+          "planTier": "Enterprise"
+        },
+        "step4": {
+          "primaryUseCase": "Personal productivity",
+          "teamSize": 338,
+          "topGoals": [
+            "Better visibility",
+            "Ship faster"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "_78p_FRduk4WgkkEGKsHw",
+        "workspaceId": "7XnL8iTWh5WveJUrVIn0l",
+        "visitorCreatedAt": "2026-11-04T16:27:29.872Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:29.873Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:29.925Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "darin.bechtelar@example.com",
+          "password": "multicolored-mainstream-943",
+          "firstName": "Darin",
+          "lastName": "Bechtelar",
+          "username": "dbechtelar"
+        },
+        "step2": {
+          "jobTitle": "Growth Marketer",
+          "role": "Marketing",
+          "yearsExperience": 8,
+          "location": "Larson-Handfield, Equatorial Guinea"
+        },
+        "step3": {
+          "companyName": "Windler and Sons",
+          "companySize": "1–10",
+          "industry": "Financial services",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 1,
+          "topGoals": [
+            "Cleaner reporting",
+            "Ship faster",
+            "Less context switching"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "BAAWD3n8DjbV84PIE5PvE",
+        "workspaceId": "BkDfiLBjY23GtEPuibKFC",
+        "visitorCreatedAt": "2026-11-04T16:27:31.890Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:31.890Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:31.953Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "clint.lowe@example.com",
+          "password": "scratchy-perp-345",
+          "firstName": "Clint",
+          "lastName": "Lowe",
+          "username": "clowe"
+        },
+        "step2": {
+          "jobTitle": "Product Manager",
+          "role": "Product",
+          "yearsExperience": 2,
+          "location": "Fort Korey, Indonesia"
+        },
+        "step3": {
+          "companyName": "Ankunding - Bauch",
+          "companySize": "11–50",
+          "industry": "Healthcare",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 21,
+          "topGoals": [
+            "Onboard the team"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "bA7DBqipBttHgkgedrsCD",
+        "workspaceId": "kCDNayWXA7qmjtjxgGcDA",
+        "visitorCreatedAt": "2026-11-04T16:27:33.805Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:33.806Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:33.856Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "isom.kozey@example.com",
+          "password": "deep-hovel-482",
+          "firstName": "Isom",
+          "lastName": "Kozey",
+          "username": "ikozey"
+        },
+        "step2": {
+          "jobTitle": "Senior Software Engineer",
+          "role": "Engineering",
+          "yearsExperience": 9,
+          "location": "New Friedrich, Nepal"
+        },
+        "step3": {
+          "companyName": "Cruickshank Group",
+          "companySize": "51–200",
+          "industry": "Software",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 35,
+          "topGoals": [
+            "Better visibility",
+            "Cleaner reporting"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "BNEP8ZmmcTQbDmMK4FWZE",
+        "workspaceId": "f-IQwu8j-6utQjz4kaAnw",
+        "visitorCreatedAt": "2026-11-04T16:27:35.824Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:35.824Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:35.890Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "keegan.howell@example.com",
+          "password": "proud-impostor-883",
+          "firstName": "Keegan",
+          "lastName": "Howell",
+          "username": "khowell"
+        },
+        "step2": {
+          "jobTitle": "Staff Engineer",
+          "role": "Engineering",
+          "yearsExperience": 8,
+          "location": "Wallaceside, Colombia"
+        },
+        "step3": {
+          "companyName": "Botsford - Hamill",
+          "companySize": "201–1,000",
+          "industry": "Software",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 35,
+          "topGoals": [
+            "Replace another tool",
+            "Less context switching"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "jIDlzn65z-7dNMHxXFWkj",
+        "workspaceId": "4diCExIcG8eoUTeBKY8R9",
+        "visitorCreatedAt": "2026-11-04T16:27:37.806Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:37.807Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:37.861Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "reyes.predovic@example.com",
+          "password": "practical-swanling-593",
+          "firstName": "Reyes",
+          "lastName": "Predovic",
+          "username": "rpredovic"
+        },
+        "step2": {
+          "jobTitle": "Customer Success Manager",
+          "role": "Sales",
+          "yearsExperience": 1,
+          "location": "Darefort, Singapore"
+        },
+        "step3": {
+          "companyName": "Sanford, Stokes and Romaguera",
+          "companySize": "1–10",
+          "industry": "Software",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 3,
+          "topGoals": [
+            "Less context switching",
+            "Replace another tool",
+            "Better visibility"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "YxlseB1D9-Rix4KEdWaAQ",
+        "workspaceId": "otUi0YpJ1y3RkTqSq_iPp",
+        "visitorCreatedAt": "2026-11-04T16:27:39.930Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:39.931Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:39.984Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "karson.tremblay@example.com",
+          "password": "illiterate-adaptation-355",
+          "firstName": "Karson",
+          "lastName": "Tremblay",
+          "username": "ktremblay"
+        },
+        "step2": {
+          "jobTitle": "Business Analyst",
+          "role": "Operations",
+          "yearsExperience": 2,
+          "location": "Boca Raton, French Southern Territories"
+        },
+        "step3": {
+          "companyName": "Murray, Harber and Schiller",
+          "companySize": "1,000+",
+          "industry": "Other",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Personal productivity",
+          "teamSize": 217,
+          "topGoals": [
+            "Better visibility",
+            "Replace another tool",
+            "Ship faster"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "22av_0Z4pMrh8JSdjfRR3",
+        "workspaceId": "daJHHvXdCsMDaRFkWwK0K",
+        "visitorCreatedAt": "2026-11-04T16:27:41.923Z",
+        "workspaceCreatedAt": "2026-11-04T16:27:41.923Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-04T16:27:41.977Z",
+        "sessions": 0,
+        "lastActiveAt": null
+      }
+    }
+  ]
+}
