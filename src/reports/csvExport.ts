@@ -69,9 +69,9 @@ export function toCsv(rows: Task[]): string {
  * object-URL. Filename includes a browser-local ISO date. No-ops if `tasks` is
  * empty would still write a header-only file — callers should guard with
  * `disabled={tasks.length === 0}` on the trigger button per D-23 (UI-SPEC
- * line 700).
+ * line 700). Returns the generated filename.
  */
-export function exportTasksToCsv(tasks: Task[]): void {
+export function exportTasksToCsv(tasks: Task[]): string {
   const csv = toCsv(tasks)
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' })
   const url = URL.createObjectURL(blob)
@@ -84,4 +84,5 @@ export function exportTasksToCsv(tasks: Task[]): void {
   a.click()
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
+  return filename
 }

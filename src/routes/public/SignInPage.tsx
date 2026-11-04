@@ -45,6 +45,7 @@ import { Container, Stack, Paper, Title, Text, Alert } from '@mantine/core'
 import { IconAlertCircle } from '@tabler/icons-react'
 import { TextInput, PasswordInput, Button, Anchor } from '../../ui/primitives'
 import { PENDO_IDS } from '../../pendo/PENDO_IDS'
+import { trackEvent } from '../../pendo/track'
 import { signinSchema, type SigninValues, useAuthStore } from '../../auth'
 
 export function SignInPage(): React.JSX.Element {
@@ -70,6 +71,14 @@ export function SignInPage(): React.JSX.Element {
       .getState()
       .signInWithCredentials(values.email, values.password)
     if (result.ok) {
+      // Pendo: user_signed_in — credential sign-in succeeded (password check
+      // + workspace lookup passed). Fired before navigating into /app.
+      const signedInWorkspace = useAuthStore.getState().currentWorkspace
+      trackEvent('user_signed_in', {
+        workspaceId: signedInWorkspace?.id ?? null,
+        planTier: signedInWorkspace?.planTier ?? null,
+        signInMethod: 'password',
+      })
       navigate('/app', { replace: true })
       return
     }
@@ -78,6 +87,8 @@ export function SignInPage(): React.JSX.Element {
     // defensive "missing workspace" branch into one variant — username
     // enumeration mitigation T-02-45 at the API surface).
     console.log('Sign in failed:', result.reason)
+    // Pendo: sign_in_failed — never include the email or password.
+    trackEvent('sign_in_failed', { reason: result.reason })
     setCredError(result.reason)
   })
 

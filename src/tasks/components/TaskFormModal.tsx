@@ -48,6 +48,7 @@ import {
   Button,
 } from '../../ui/primitives'
 import { PENDO_IDS } from '../../pendo/PENDO_IDS'
+import { trackEvent } from '../../pendo/track'
 import {
   TaskFormSchema,
   TaskStatusEnum,
@@ -58,7 +59,7 @@ import {
   TASK_PRIORITY_LABELS,
 } from '../labels'
 import type { Task, TaskFormValues, Assignee } from '../types'
-import { createTask, updateTask } from '../tasksRepo'
+import { createTask, updateTask, listTasks } from '../tasksRepo'
 import { getAssigneeOptions } from '../assigneeOptions'
 import type { Visitor } from '../../auth/types'
 
@@ -187,7 +188,7 @@ export function TaskFormModal({
 
   const onSubmit = form.handleSubmit((values) => {
     if (mode === 'create') {
-      createTask(workspaceId, { ...values, completedAt: null })
+      const created = createTask(workspaceId, { ...values, completedAt: null })
       notifications.show({
         title: 'Task created',
         message: '',
@@ -195,8 +196,18 @@ export function TaskFormModal({
         icon: <IconCheck size={18} />,
         autoClose: 3000,
       })
+      // Pendo: task_created — the task was persisted (Zod validation passed).
+      trackEvent('task_created', {
+        taskId: created.id,
+        status: created.status,
+        priority: created.priority,
+        hasDueDate: created.dueDate !== null,
+        hasDescription: created.description.trim().length > 0,
+        assignedToSelf: created.assignee.id === visitor.id,
+        workspaceTaskCount: listTasks(workspaceId).length,
+      })
     } else if (initialTask) {
-      updateTask(workspaceId, initialTask.id, values)
+      const updated = updateTask(workspaceId, initialTask.id, values, 'edit_modal')
       notifications.show({
         title: 'Changes saved',
         message: '',
@@ -204,6 +215,27 @@ export function TaskFormModal({
         icon: <IconCheck size={18} />,
         autoClose: 3000,
       })
+      if (updated) {
+        // Pendo: task_updated — field names only (never titles/descriptions).
+        const changedFields = [
+          values.title !== initialTask.title ? 'title' : null,
+          values.description !== initialTask.description ? 'description' : null,
+          values.status !== initialTask.status ? 'status' : null,
+          values.priority !== initialTask.priority ? 'priority' : null,
+          values.assignee.id !== initialTask.assignee.id ? 'assignee' : null,
+          values.dueDate !== initialTask.dueDate ? 'dueDate' : null,
+        ].filter((field): field is string => field !== null)
+        trackEvent('task_updated', {
+          taskId: updated.id,
+          changedFields,
+          previousStatus: initialTask.status,
+          newStatus: updated.status,
+          previousPriority: initialTask.priority,
+          newPriority: updated.priority,
+          assigneeChanged: changedFields.includes('assignee'),
+          dueDateChanged: changedFields.includes('dueDate'),
+        })
+      }
     }
     onSuccess()
     onClose()

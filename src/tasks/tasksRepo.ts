@@ -20,6 +20,7 @@ import { nanoid } from 'nanoid'
 import { K, readWithSchema, writeJSON } from '../storage'
 import { TasksArraySchema } from './schemas'
 import type { Task } from './types'
+import { trackEvent } from '../pendo/track'
 
 // ---------------------------------------------------------------------------
 // Input shape — explicit so TypeScript catches accidental field omissions
@@ -40,6 +41,12 @@ export type CreateTaskInput = Omit<Task, 'id' | 'createdAt' | 'updatedAt'>
 export type UpdateTaskPatch = Partial<
   Omit<Task, 'id' | 'createdAt' | 'completedAt' | 'prevStatus'>
 >
+
+/**
+ * Which UI surface drove an `updateTask` call. Only used as analytics context
+ * for the Pendo `task_completed` event fired at the D-09 →done edge.
+ */
+export type TaskUpdateSource = 'checkbox' | 'edit_modal' | 'unknown'
 
 // ---------------------------------------------------------------------------
 // Read helpers
@@ -106,6 +113,7 @@ export function updateTask(
   workspaceId: string,
   id: string,
   patch: UpdateTaskPatch,
+  source: TaskUpdateSource = 'unknown',
 ): Task | undefined {
   const existing = listTasks(workspaceId)
   const idx = existing.findIndex((t) => t.id === id)
@@ -137,6 +145,23 @@ export function updateTask(
   const next = [...existing]
   next[idx] = updated
   writeJSON(K.tasks(workspaceId), next)
+
+  // Pendo: task_completed — fires exactly once per real completion, on the
+  // same D-09 →done edge that stamps completedAt (checkbox OR edit modal).
+  if (updated.status === 'done' && prevTaskStatus !== 'done') {
+    const completedMs = updated.completedAt ? Date.parse(updated.completedAt) : Date.now()
+    const createdMs = Date.parse(updated.createdAt)
+    trackEvent('task_completed', {
+      taskId: updated.id,
+      priority: updated.priority,
+      prevStatus: prevTaskStatus,
+      cycleTimeHours: Math.round(((completedMs - createdMs) / 3_600_000) * 10) / 10,
+      wasOverdue: updated.dueDate !== null && Date.parse(updated.dueDate) < completedMs,
+      hasDueDate: updated.dueDate !== null,
+      completionSource: source,
+    })
+  }
+
   return updated
 }
 

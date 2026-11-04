@@ -29,6 +29,7 @@ import { Stack, Group, Title, Alert } from '@mantine/core'
 import { IconAlertCircle } from '@tabler/icons-react'
 import { Select, NumberInput, MultiSelect, Button } from '../../../ui/primitives'
 import { PENDO_IDS } from '../../../pendo/PENDO_IDS'
+import { trackEvent } from '../../../pendo/track'
 import {
   step1Schema,
   step2Schema,
@@ -99,6 +100,21 @@ export function Step4PreferencesPage(): React.JSX.Element {
     },
   })
 
+  // Pendo: signup_failed — fires when the final submit fails and the user
+  // stays on /signup/preferences with an error Alert. Plan tier / company
+  // size are read from the step-3 draft when available (may be absent if the
+  // failure is a draft re-validation error).
+  const trackSignupFailed = (
+    failureReason: 'generic_failure' | 'duplicate_email' | 'duplicate_username',
+  ) => {
+    const step3Draft = readWizardDraft().step3
+    trackEvent('signup_failed', {
+      failureReason,
+      planTier: step3Draft?.planTier ?? null,
+      companySize: step3Draft?.companySize ?? null,
+    })
+  }
+
   const onSubmit = form.handleSubmit(async (step4Values) => {
     setSubmitError(null)
     try {
@@ -135,10 +151,12 @@ export function Step4PreferencesPage(): React.JSX.Element {
       // silently shadows. Surface as a form-level Alert and abort.
       if (findVisitorByEmail(s1.email)) {
         setSubmitError('duplicate_email')
+        trackSignupFailed('duplicate_email')
         return
       }
       if (findVisitorByUsername(s1.username)) {
         setSubmitError('duplicate_username')
+        trackSignupFailed('duplicate_username')
         return
       }
 
@@ -177,6 +195,21 @@ export function Step4PreferencesPage(): React.JSX.Element {
       // (T-02-17) ends here. sessionStorage[halo:v1:signup:draft] is removed.
       clearWizardDraft()
 
+      // Pendo: signup_completed — the 4-step wizard finished successfully
+      // (visitor + workspace written, session established). Carries the
+      // firmographic + intent answers collected across the wizard steps.
+      trackEvent('signup_completed', {
+        primaryUseCase: step4Values.primaryUseCase,
+        teamSize: step4Values.teamSize,
+        topGoals: [...step4Values.topGoals],
+        topGoalsCount: step4Values.topGoals.length,
+        role: s2.role,
+        yearsExperience: s2.yearsExperience,
+        companySize: s3.companySize,
+        industry: s3.industry,
+        planTier: s3.planTier,
+      })
+
       // Redirect into the authenticated area. replace:true so the back button
       // from /app does not return to /signup/preferences.
       navigate('/app', { replace: true })
@@ -187,6 +220,7 @@ export function Step4PreferencesPage(): React.JSX.Element {
       // cleared on failure — user can retry by clicking Create account again.
       console.error('[signup] completion failed:', err)
       setSubmitError('generic_failure')
+      trackSignupFailed('generic_failure')
     }
   })
 

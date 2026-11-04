@@ -38,6 +38,7 @@ import { notifications } from '@mantine/notifications'
 import { IconCheck, IconAlertCircle } from '@tabler/icons-react'
 import { TextInput, Select, Button } from '../ui/primitives'
 import { PENDO_IDS } from '../pendo/PENDO_IDS'
+import { trackEvent } from '../pendo/track'
 import {
   WorkspaceSchema,
   updateWorkspace,
@@ -93,6 +94,7 @@ export function WorkspaceTab(): React.JSX.Element | null {
   })
 
   const onSubmit = form.handleSubmit((values) => {
+    const previousPlanTier = workspace.planTier
     const updated = updateWorkspace(workspace.id, values)
     if (updated) {
       useAuthStore.setState({ currentWorkspace: updated })
@@ -103,6 +105,16 @@ export function WorkspaceTab(): React.JSX.Element | null {
         icon: <IconCheck size={18} />,
         autoClose: 3000,
       })
+      // Pendo: workspace_plan_changed — only when the persisted planTier
+      // actually differs from the previous value (upgrade or downgrade).
+      if (updated.planTier !== previousPlanTier) {
+        trackEvent('workspace_plan_changed', {
+          previousPlanTier,
+          newPlanTier: updated.planTier,
+          companySize: updated.companySize,
+          industry: updated.industry,
+        })
+      }
       form.reset(values)
     } else {
       notifications.show({

@@ -34,7 +34,8 @@ import { notifications } from '@mantine/notifications'
 import { IconCheck } from '@tabler/icons-react'
 import { TextInput, Select, Button } from '../../ui/primitives'
 import { PENDO_IDS } from '../../pendo/PENDO_IDS'
-import { createTeammate, findTeammateByEmail } from '../teamsRepo'
+import { trackEvent } from '../../pendo/track'
+import { createTeammate, findTeammateByEmail, listTeammates } from '../teamsRepo'
 
 export type InviteTeammateModalProps = {
   opened: boolean
@@ -116,6 +117,15 @@ export function InviteTeammateModal({
       color: 'green',
       icon: <IconCheck size={18} />,
       autoClose: 3000,
+    })
+
+    // Pendo: teammate_invited — invite persisted (validation passed). Never
+    // send the invitee's email; counts reflect the roster after the write.
+    const teammatesAfterInvite = listTeammates(workspaceId)
+    trackEvent('teammate_invited', {
+      workspaceRole: values.workspaceRole,
+      teammateCount: teammatesAfterInvite.length,
+      pendingInviteCount: teammatesAfterInvite.filter((t) => t.status === 'invited').length,
     })
 
     onSuccess()
