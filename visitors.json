@@ -39,8 +39,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:04.571Z",
-        "sessions": 1,
-        "lastActiveAt": "2026-11-05T13:37:23.690Z"
+        "sessions": 2,
+        "lastActiveAt": "2026-11-09T13:39:44.126Z"
       }
     },
     {
@@ -80,8 +80,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:06.507Z",
-        "sessions": 3,
-        "lastActiveAt": "2026-11-07T13:40:56.668Z"
+        "sessions": 4,
+        "lastActiveAt": "2026-11-09T13:36:56.416Z"
       }
     },
     {
@@ -330,8 +330,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:18.190Z",
-        "sessions": 1,
-        "lastActiveAt": "2026-11-07T13:39:20.213Z"
+        "sessions": 2,
+        "lastActiveAt": "2026-11-09T13:39:13.983Z"
       }
     },
     {
@@ -413,8 +413,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:22.063Z",
-        "sessions": 1,
-        "lastActiveAt": "2026-11-07T13:37:43.963Z"
+        "sessions": 2,
+        "lastActiveAt": "2026-11-09T13:35:47.148Z"
       }
     },
     {
@@ -581,8 +581,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:29.925Z",
-        "sessions": 1,
-        "lastActiveAt": "2026-11-08T13:36:21.114Z"
+        "sessions": 2,
+        "lastActiveAt": "2026-11-09T13:38:55.244Z"
       }
     },
     {
@@ -707,8 +707,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:35.890Z",
-        "sessions": 2,
-        "lastActiveAt": "2026-11-06T13:35:44.120Z"
+        "sessions": 3,
+        "lastActiveAt": "2026-11-09T13:38:15.082Z"
       }
     },
     {
@@ -879,6 +879,48 @@
         "createdAt": "2026-11-04T18:34:58.646Z",
         "sessions": 2,
         "lastActiveAt": "2026-11-08T13:37:03.581Z"
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "myrtie.gerhold@example.com",
+          "password": "boring-wilderness-936",
+          "firstName": "Myrtie",
+          "lastName": "Gerhold",
+          "username": "mgerhold"
+        },
+        "step2": {
+          "jobTitle": "QA Engineer",
+          "role": "Engineering",
+          "yearsExperience": 7,
+          "location": "Lake Danielleport, Panama"
+        },
+        "step3": {
+          "companyName": "Beier, Kutch and Crist",
+          "companySize": "11–50",
+          "industry": "Manufacturing",
+          "planTier": "Enterprise"
+        },
+        "step4": {
+          "primaryUseCase": "Task tracking",
+          "teamSize": 25,
+          "topGoals": [
+            "Ship faster",
+            "Cleaner reporting"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "G18qCAHVWxBPvdIWqyh0l",
+        "workspaceId": "-bHkZ-CqFCwCLt0o03_pO",
+        "visitorCreatedAt": "2026-11-09T13:39:46.815Z",
+        "workspaceCreatedAt": "2026-11-09T13:39:46.815Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-09T13:39:46.875Z",
+        "sessions": 1,
+        "lastActiveAt": "2026-11-09T13:39:59.151Z"
       }
     }
   ]
