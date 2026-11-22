@@ -497,8 +497,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:26.006Z",
-        "sessions": 8,
-        "lastActiveAt": "2026-11-20T13:39:02.708Z"
+        "sessions": 9,
+        "lastActiveAt": "2026-11-22T13:38:46.561Z"
       }
     },
     {
@@ -539,8 +539,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:28.027Z",
-        "sessions": 5,
-        "lastActiveAt": "2026-11-21T13:36:19.285Z"
+        "sessions": 6,
+        "lastActiveAt": "2026-11-22T13:37:06.064Z"
       }
     },
     {
@@ -624,8 +624,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:31.953Z",
-        "sessions": 3,
-        "lastActiveAt": "2026-11-16T13:37:48.900Z"
+        "sessions": 4,
+        "lastActiveAt": "2026-11-22T13:36:39.484Z"
       }
     },
     {
@@ -792,8 +792,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:39.984Z",
-        "sessions": 6,
-        "lastActiveAt": "2026-11-20T13:35:37.274Z"
+        "sessions": 7,
+        "lastActiveAt": "2026-11-22T13:38:57.680Z"
       }
     },
     {
@@ -919,8 +919,8 @@
       },
       "stats": {
         "createdAt": "2026-11-09T13:39:46.875Z",
-        "sessions": 3,
-        "lastActiveAt": "2026-11-19T13:36:33.284Z"
+        "sessions": 4,
+        "lastActiveAt": "2026-11-22T13:37:16.841Z"
       }
     }
   ]
