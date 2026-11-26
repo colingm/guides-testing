@@ -80,8 +80,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:06.507Z",
-        "sessions": 9,
-        "lastActiveAt": "2026-11-25T13:38:43.013Z"
+        "sessions": 10,
+        "lastActiveAt": "2026-11-26T13:38:51.173Z"
       }
     },
     {
@@ -122,8 +122,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:08.476Z",
-        "sessions": 9,
-        "lastActiveAt": "2026-11-24T13:39:05.225Z"
+        "sessions": 10,
+        "lastActiveAt": "2026-11-26T13:39:36.873Z"
       }
     },
     {
@@ -165,8 +165,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:10.513Z",
-        "sessions": 9,
-        "lastActiveAt": "2026-11-24T13:37:53.648Z"
+        "sessions": 10,
+        "lastActiveAt": "2026-11-26T13:35:12.356Z"
       }
     },
     {
@@ -289,8 +289,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:16.286Z",
-        "sessions": 2,
-        "lastActiveAt": "2026-11-24T13:37:42.876Z"
+        "sessions": 3,
+        "lastActiveAt": "2026-11-26T13:37:35.035Z"
       }
     },
     {
@@ -371,8 +371,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:20.122Z",
-        "sessions": 7,
-        "lastActiveAt": "2026-11-23T13:35:30.531Z"
+        "sessions": 8,
+        "lastActiveAt": "2026-11-26T13:35:21.974Z"
       }
     },
     {
@@ -665,8 +665,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:33.856Z",
-        "sessions": 6,
-        "lastActiveAt": "2026-11-25T13:39:14.744Z"
+        "sessions": 7,
+        "lastActiveAt": "2026-11-26T13:40:20.108Z"
       }
     },
     {
@@ -707,8 +707,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:35.890Z",
-        "sessions": 7,
-        "lastActiveAt": "2026-11-25T13:37:39.340Z"
+        "sessions": 8,
+        "lastActiveAt": "2026-11-26T13:36:24.086Z"
       }
     },
     {
@@ -877,8 +877,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T18:34:58.646Z",
-        "sessions": 8,
-        "lastActiveAt": "2026-11-23T13:35:18.735Z"
+        "sessions": 9,
+        "lastActiveAt": "2026-11-26T13:35:36.491Z"
       }
     },
     {
@@ -921,6 +921,48 @@
         "createdAt": "2026-11-09T13:39:46.875Z",
         "sessions": 5,
         "lastActiveAt": "2026-11-24T13:36:36.684Z"
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "lemuel.mitchell@example.com",
+          "password": "aggravating-markup-527",
+          "firstName": "Lemuel",
+          "lastName": "Mitchell",
+          "username": "lmitchell"
+        },
+        "step2": {
+          "jobTitle": "Design Lead",
+          "role": "Design",
+          "yearsExperience": 20,
+          "location": "Harberland, Brazil"
+        },
+        "step3": {
+          "companyName": "Mills Inc",
+          "companySize": "11–50",
+          "industry": "Software",
+          "planTier": "Pro"
+        },
+        "step4": {
+          "primaryUseCase": "Team coordination",
+          "teamSize": 7,
+          "topGoals": [
+            "Onboard the team",
+            "Cleaner reporting"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "P0-a4l-NDjkGwWWKaVaLU",
+        "workspaceId": "1bgKoi0YSdzQD0MhM7wrJ",
+        "visitorCreatedAt": "2026-11-26T13:40:22.550Z",
+        "workspaceCreatedAt": "2026-11-26T13:40:22.551Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-26T13:40:22.608Z",
+        "sessions": 1,
+        "lastActiveAt": "2026-11-26T13:40:47.223Z"
       }
     }
   ]
