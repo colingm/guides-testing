@@ -80,8 +80,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:06.507Z",
-        "sessions": 10,
-        "lastActiveAt": "2026-11-26T13:38:51.173Z"
+        "sessions": 11,
+        "lastActiveAt": "2026-11-28T13:37:06.606Z"
       }
     },
     {
@@ -122,8 +122,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:08.476Z",
-        "sessions": 10,
-        "lastActiveAt": "2026-11-26T13:39:36.873Z"
+        "sessions": 11,
+        "lastActiveAt": "2026-11-28T13:38:24.161Z"
       }
     },
     {
@@ -247,8 +247,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:14.299Z",
-        "sessions": 3,
-        "lastActiveAt": "2026-11-19T13:39:25.645Z"
+        "sessions": 4,
+        "lastActiveAt": "2026-11-28T13:37:19.382Z"
       }
     },
     {
@@ -413,8 +413,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:22.063Z",
-        "sessions": 9,
-        "lastActiveAt": "2026-11-25T13:35:25.789Z"
+        "sessions": 10,
+        "lastActiveAt": "2026-11-28T13:39:51.343Z"
       }
     },
     {
@@ -454,8 +454,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:23.962Z",
-        "sessions": 9,
-        "lastActiveAt": "2026-11-27T13:34:59.107Z"
+        "sessions": 10,
+        "lastActiveAt": "2026-11-28T13:38:40.508Z"
       }
     },
     {
@@ -581,8 +581,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:29.925Z",
-        "sessions": 6,
-        "lastActiveAt": "2026-11-21T13:35:38.976Z"
+        "sessions": 7,
+        "lastActiveAt": "2026-11-28T13:37:44.646Z"
       }
     },
     {
@@ -624,8 +624,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:31.953Z",
-        "sessions": 5,
-        "lastActiveAt": "2026-11-23T13:38:12.700Z"
+        "sessions": 6,
+        "lastActiveAt": "2026-11-28T13:36:03.529Z"
       }
     },
     {
@@ -749,8 +749,8 @@
       },
       "stats": {
         "createdAt": "2026-11-04T16:27:37.861Z",
-        "sessions": 9,
-        "lastActiveAt": "2026-11-24T13:36:01.421Z"
+        "sessions": 10,
+        "lastActiveAt": "2026-11-28T13:39:19.525Z"
       }
     },
     {
@@ -963,6 +963,47 @@
         "createdAt": "2026-11-26T13:40:22.608Z",
         "sessions": 2,
         "lastActiveAt": "2026-11-27T13:38:39.501Z"
+      }
+    },
+    {
+      "profile": {
+        "step1": {
+          "email": "margarett.kulas@example.com",
+          "password": "cloudy-packaging-810",
+          "firstName": "Margarett",
+          "lastName": "Kulas",
+          "username": "mkulas"
+        },
+        "step2": {
+          "jobTitle": "Analyst",
+          "role": "Other",
+          "yearsExperience": 2,
+          "location": "Lake Aidaville, Zimbabwe"
+        },
+        "step3": {
+          "companyName": "Carter Inc",
+          "companySize": "1,000+",
+          "industry": "Software",
+          "planTier": "Free"
+        },
+        "step4": {
+          "primaryUseCase": "Just exploring",
+          "teamSize": 28,
+          "topGoals": [
+            "Better visibility"
+          ]
+        }
+      },
+      "identity": {
+        "visitorId": "bSGEFwAjFl98j1VcrYLiH",
+        "workspaceId": "VYrOHQzLp958DVdz7EDR0",
+        "visitorCreatedAt": "2026-11-28T13:39:53.735Z",
+        "workspaceCreatedAt": "2026-11-28T13:39:53.735Z"
+      },
+      "stats": {
+        "createdAt": "2026-11-28T13:39:53.805Z",
+        "sessions": 1,
+        "lastActiveAt": "2026-11-28T13:40:06.313Z"
       }
     }
   ]
